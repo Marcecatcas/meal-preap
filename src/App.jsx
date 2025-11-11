@@ -9,154 +9,143 @@ function App() {
 
   const days = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo'];
 
-  const weeklyPlan = {
-    lunes: {
-      desayuno: { nombre: 'Overnight Oats con Arándanos', caloriaA: 280, caloriaB: 400, ajusteB: '+50g avena, +1 cda mantequilla almendra', prep: 'Preparar la noche anterior' },
-      colacion1: { nombre: 'Almendras', caloriaA: 130, caloriaB: 180, ajusteB: '30g en vez de 23g', prep: 'Porcionar en bolsitas' },
-      almuerzo: { nombre: 'Bowl de Salmón con Quinoa', caloriaA: 380, caloriaB: 520, ajusteB: '+50g salmón, +1/2 taza quinoa', prep: 'Meal prep domingo' },
-      colacion2: { nombre: 'Palitos de Zanahoria con Hummus', caloriaA: 90, caloriaB: 150, ajusteB: '+2 cdas hummus, +1 pan integral', prep: 'Cortar y guardar' },
-      cena: { nombre: 'Pechuga de Pollo con Brócoli al Vapor', caloriaA: 290, caloriaB: 450, ajusteB: '+80g pollo, +1 cdta aceite oliva, +1/2 taza arroz integral', prep: 'Meal prep domingo' }
-    },
-    martes: {
-      desayuno: { nombre: 'Smoothie Verde con Espinaca y Mango', caloriaA: 270, caloriaB: 390, ajusteB: '+1 plátano, +1 cda semillas chía', prep: 'Congelar porciones' },
-      colacion1: { nombre: 'Manzana con Mantequilla de Almendra', caloriaA: 140, caloriaB: 200, ajusteB: '+1 cda mantequilla almendra', prep: 'Porcionar mantequilla' },
-      almuerzo: { nombre: 'Ensalada de Garbanzos y Vegetales', caloriaA: 370, caloriaB: 530, ajusteB: '+1/2 taza garbanzos, +1/2 aguacate', prep: 'Meal prep domingo' },
-      colacion2: { nombre: 'Rodajas de Pepino con Guacamole', caloriaA: 100, caloriaB: 170, ajusteB: '+1/2 aguacate extra, +10 almendras', prep: 'Cortar pepino' },
-      cena: { nombre: 'Filete de Pescado Blanco con Espárragos', caloriaA: 300, caloriaB: 410, ajusteB: '+50g pescado, +1/2 taza quinoa', prep: 'Cocinar fresco 15min' }
-    },
-    miércoles: {
-      desayuno: { nombre: 'Tostada de Aguacate con Huevo Pochado', caloriaA: 290, caloriaB: 420, ajusteB: '+1 huevo, +1/4 aguacate', prep: 'Hacer por la mañana' },
-      colacion1: { nombre: 'Mix de Nueces y Arándanos', caloriaA: 120, caloriaB: 170, ajusteB: '40g en vez de 30g', prep: 'Porcionar en bolsitas' },
-      almuerzo: { nombre: 'Bowl de Quinoa con Pollo y Kale', caloriaA: 390, caloriaB: 560, ajusteB: '+80g pollo, +1/2 taza quinoa', prep: 'Meal prep domingo' },
-      colacion2: { nombre: 'Apio con Mantequilla de Nuez', caloriaA: 80, caloriaB: 140, ajusteB: '+1.5 cdas mantequilla nuez', prep: 'Cortar y guardar' },
-      cena: { nombre: 'Salmón al Horno con Col Rizada', caloriaA: 300, caloriaB: 410, ajusteB: '+50g salmón, +1/2 batata asada', prep: 'Cocinar fresco 20min' }
-    },
-    jueves: {
-      desayuno: { nombre: 'Chia Pudding con Frutos Rojos', caloriaA: 275, caloriaB: 395, ajusteB: '+2 cdas semillas chía, +1/4 taza granola', prep: 'Preparar la noche anterior' },
-      colacion1: { nombre: 'Nueces de Nogal', caloriaA: 130, caloriaB: 185, ajusteB: '20 mitades en vez de 14', prep: 'Porcionar en bolsitas' },
-      almuerzo: { nombre: 'Wrap de Pavo con Vegetales', caloriaA: 370, caloriaB: 540, ajusteB: '+60g pavo, +1 tortilla extra, +1/4 aguacate', prep: 'Meal prep domingo' },
-      colacion2: { nombre: 'Tomates Cherry con Aceite de Oliva', caloriaA: 95, caloriaB: 155, ajusteB: '+15 almendras', prep: 'Lavar y guardar' },
-      cena: { nombre: 'Pechuga de Pavo con Calabacín Asado', caloriaA: 300, caloriaB: 425, ajusteB: '+70g pavo, +1/2 taza arroz integral', prep: 'Meal prep miércoles' }
-    },
-    viernes: {
-      desayuno: { nombre: 'Bowl de Yogurt de Coco con Granola', caloriaA: 285, caloriaB: 410, ajusteB: '+1/3 taza yogurt, +1/4 taza granola', prep: 'Ensamblar por la mañana' },
-      colacion1: { nombre: 'Pera con Almendras Fileteadas', caloriaA: 125, caloriaB: 180, ajusteB: '+15g almendras', prep: 'Simple y fresco' },
-      almuerzo: { nombre: 'Ensalada de Atún con Aguacate', caloriaA: 380, caloriaB: 550, ajusteB: '+1 lata atún, +1/2 aguacate, +1 cda aceite oliva', prep: 'Meal prep miércoles' },
-      colacion2: { nombre: 'Edamame al Vapor', caloriaA: 100, caloriaB: 160, ajusteB: '3/4 taza en vez de 1/2', prep: 'Porcionar' },
-      cena: { nombre: 'Curry de Garbanzos con Espinaca', caloriaA: 300, caloriaB: 400, ajusteB: '+1/2 taza garbanzos, +1/2 taza arroz integral', prep: 'Meal prep miércoles' }
-    },
-    sábado: {
-      desayuno: { nombre: 'Tortilla de Vegetales con Champiñones', caloriaA: 280, caloriaB: 400, ajusteB: '+1 huevo, +1 rebanada pan integral', prep: 'Hacer por la mañana' },
-      colacion1: { nombre: 'Smoothie de Frutos Rojos', caloriaA: 135, caloriaB: 195, ajusteB: '+1 cda mantequilla almendra', prep: 'Congelar porciones' },
-      almuerzo: { nombre: 'Bowl de Lentejas con Vegetales Asados', caloriaA: 375, caloriaB: 540, ajusteB: '+1/2 taza lentejas, +1 cda aceite oliva', prep: 'Meal prep miércoles' },
-      colacion2: { nombre: 'Bastones de Zanahoria y Apio', caloriaA: 90, caloriaB: 155, ajusteB: '+3 cdas hummus', prep: 'Cortar y guardar' },
-      cena: { nombre: 'Salmón con Ensalada Mediterránea', caloriaA: 310, caloriaB: 410, ajusteB: '+50g salmón, +1/2 taza quinoa', prep: 'Cocinar fresco 20min' }
-    },
-    domingo: {
-      desayuno: { nombre: 'Tazón de Avena con Manzana Canela', caloriaA: 275, caloriaB: 395, ajusteB: '+40g avena, +1 cda nueces', prep: 'Cocinar en la mañana' },
-      colacion1: { nombre: 'Mix de Frutos Secos', caloriaA: 140, caloriaB: 200, ajusteB: '40g en vez de 28g', prep: 'Porcionar' },
-      almuerzo: { nombre: 'Pollo al Limón con Arroz Integral', caloriaA: 380, caloriaB: 550, ajusteB: '+80g pollo, +1/2 taza arroz', prep: 'Día de meal prep' },
-      colacion2: { nombre: 'Pepino con Limón y Sal del Himalaya', caloriaA: 85, caloriaB: 145, ajusteB: '+2 cdas mantequilla almendra', prep: 'Cortar fresco' },
-      cena: { nombre: 'Bowl Vegetariano de Quinoa y Falafel', caloriaA: 310, caloriaB: 410, ajusteB: '+2 falafels, +1/3 taza quinoa', prep: 'Preparar para semana' }
-    }
-  };
+ const weeklyPlan = {
+  lunes: {
+    desayuno: { nombre: 'Avena con manzana y canela', caloriaA: 270, caloriaB: 390, ajusteB: '+40g avena, +1 cda nueces picadas', prep: 'Cocinar con agua o leche vegetal' },
+    colacion1: { nombre: 'Puñado de almendras', caloriaA: 130, caloriaB: 180, ajusteB: '30g en vez de 20g', prep: 'Porcionar en bolsitas' },
+    almuerzo: { nombre: 'Charquicán vegetal con huevo', caloriaA: 380, caloriaB: 530, ajusteB: '+1 huevo extra, +1/2 taza zapallo', prep: 'Preparar en olla el domingo' },
+    colacion2: { nombre: 'Palitos de pepino y zanahoria con hummus', caloriaA: 90, caloriaB: 150, ajusteB: '+2 cdas hummus, +1 pan pita integral', prep: 'Cortar y guardar' },
+    cena: { nombre: 'Filete de merluza con ensalada chilena', caloriaA: 300, caloriaB: 450, ajusteB: '+50g merluza, +1 cda aceite oliva, +1/2 taza arroz integral', prep: 'Cocinar fresco' }
+  },
+  martes: {
+    desayuno: { nombre: 'Pan integral con palta y huevo duro', caloriaA: 280, caloriaB: 400, ajusteB: '+1 rebanada pan y +1 huevo', prep: 'Preparar por la mañana' },
+    colacion1: { nombre: 'Manzana con mantequilla de maní', caloriaA: 150, caloriaB: 210, ajusteB: '+1 cda mantequilla extra', prep: 'Porcionar' },
+    almuerzo: { nombre: 'Pollo al horno con puré de zapallo y ensalada verde', caloriaA: 390, caloriaB: 540, ajusteB: '+80g pollo, +1/2 taza puré', prep: 'Meal prep domingo' },
+    colacion2: { nombre: 'Yogurt natural con avena y semillas', caloriaA: 110, caloriaB: 170, ajusteB: '+1/4 taza avena, +1 cda semillas', prep: 'Porcionar' },
+    cena: { nombre: 'Tortilla de verduras con porotos verdes', caloriaA: 270, caloriaB: 400, ajusteB: '+1 huevo, +1/2 taza porotos verdes', prep: 'Cocinar fresco' }
+  },
+  miércoles: {
+    desayuno: { nombre: 'Smoothie de frutos rojos y avena', caloriaA: 260, caloriaB: 380, ajusteB: '+1 plátano, +1 cda chía', prep: 'Congelar porciones' },
+    colacion1: { nombre: 'Mix de nueces y pasas', caloriaA: 120, caloriaB: 170, ajusteB: '40g en vez de 30g', prep: 'Porcionar en bolsitas' },
+    almuerzo: { nombre: 'Porotos con zapallo y ensalada de repollo', caloriaA: 390, caloriaB: 560, ajusteB: '+1/2 taza porotos, +1 cda aceite', prep: 'Meal prep martes' },
+    colacion2: { nombre: 'Apio con hummus', caloriaA: 80, caloriaB: 130, ajusteB: '+2 cdas hummus', prep: 'Cortar y guardar' },
+    cena: { nombre: 'Pescado al vapor con ensalada de betarraga', caloriaA: 290, caloriaB: 420, ajusteB: '+60g pescado, +1/2 taza arroz integral', prep: 'Cocinar fresco' }
+  },
+  jueves: {
+    desayuno: { nombre: 'Chía pudding con frutilla y avena', caloriaA: 275, caloriaB: 395, ajusteB: '+2 cdas chía, +1/4 taza avena extra', prep: 'Preparar la noche anterior' },
+    colacion1: { nombre: 'Puñado de nueces', caloriaA: 130, caloriaB: 185, ajusteB: '20 mitades en vez de 14', prep: 'Porcionar' },
+    almuerzo: { nombre: 'Ensalada de atún con arroz integral y palta', caloriaA: 370, caloriaB: 540, ajusteB: '+1 lata atún, +1/2 palta, +1/2 taza arroz', prep: 'Meal prep miércoles' },
+    colacion2: { nombre: 'Tomates cherry con aceite de oliva', caloriaA: 90, caloriaB: 150, ajusteB: '+1 pan pita integral', prep: 'Lavar y guardar' },
+    cena: { nombre: 'Sopa de verduras con huevo pochado', caloriaA: 280, caloriaB: 400, ajusteB: '+1 huevo, +1/2 taza lentejas', prep: 'Hacer por la tarde' }
+  },
+  viernes: {
+    desayuno: { nombre: 'Pan integral con palta y tomate', caloriaA: 270, caloriaB: 390, ajusteB: '+1 rebanada extra de pan y +1/4 palta', prep: 'Preparar por la mañana' },
+    colacion1: { nombre: 'Pera con almendras', caloriaA: 130, caloriaB: 180, ajusteB: '+10g almendras', prep: 'Simple y fresco' },
+    almuerzo: { nombre: 'Cazuela de vacuno magro con verduras', caloriaA: 400, caloriaB: 560, ajusteB: '+1 papa chica, +50g carne', prep: 'Preparar en olla' },
+    colacion2: { nombre: 'Yogurt con avena y canela', caloriaA: 100, caloriaB: 160, ajusteB: '+1/4 taza avena', prep: 'Porcionar' },
+    cena: { nombre: 'Revuelto de zapallo italiano con pollo', caloriaA: 300, caloriaB: 430, ajusteB: '+80g pollo, +1 huevo', prep: 'Cocinar fresco' }
+  },
+  sábado: {
+    desayuno: { nombre: 'Tortilla de avena con plátano', caloriaA: 280, caloriaB: 400, ajusteB: '+1 huevo y +1/2 plátano', prep: 'Cocinar por la mañana' },
+    colacion1: { nombre: 'Smoothie de frutilla y yogurt', caloriaA: 135, caloriaB: 195, ajusteB: '+1 cda mantequilla almendra', prep: 'Congelar porciones' },
+    almuerzo: { nombre: 'Lentejas con arroz y ensalada', caloriaA: 380, caloriaB: 540, ajusteB: '+1/2 taza lentejas, +1/2 taza arroz', prep: 'Meal prep viernes' },
+    colacion2: { nombre: 'Bastones de zanahoria con hummus', caloriaA: 90, caloriaB: 150, ajusteB: '+2 cdas hummus', prep: 'Cortar y guardar' },
+    cena: { nombre: 'Salmón al horno con ensalada verde', caloriaA: 310, caloriaB: 430, ajusteB: '+60g salmón, +1 cda aceite oliva', prep: 'Cocinar fresco' }
+  },
+  domingo: {
+    desayuno: { nombre: 'Avena con pera y canela', caloriaA: 275, caloriaB: 395, ajusteB: '+40g avena, +1 cda nueces', prep: 'Cocinar en la mañana' },
+    colacion1: { nombre: 'Mix de frutos secos', caloriaA: 140, caloriaB: 200, ajusteB: '40g en vez de 28g', prep: 'Porcionar' },
+    almuerzo: { nombre: 'Pollo a la plancha con ensalada chilena', caloriaA: 380, caloriaB: 540, ajusteB: '+80g pollo, +1/2 taza arroz', prep: 'Cocinar domingo' },
+    colacion2: { nombre: 'Pepino con limón y sal de mar', caloriaA: 80, caloriaB: 140, ajusteB: '+1 cda aceite oliva', prep: 'Cortar fresco' },
+    cena: { nombre: 'Budín de verduras con quinoa', caloriaA: 310, caloriaB: 410, ajusteB: '+1/2 taza quinoa', prep: 'Preparar para la semana' }
+  }
+};
 
-  const mealPrepSchedule = {
-    domingo: {
-      titulo: 'Día Principal de Meal Prep',
-      tiempo: '2.5-3.5 horas',
-      tareas: [
-        'Cocinar quinoa: 600g para Persona A, 900g para Persona B',
-        'Asar pechugas de pollo: 4 para A (150g c/u), 4 para B (200g c/u)',
-        'Cocinar salmón: 4 filetes de 150g para A, 4 de 200g para B',
-        'Preparar hummus casero (doble porción para ambas personas)',
-        'Lavar y cortar vegetales: brócoli, kale, zanahorias, apio',
-        'Preparar ensalada de garbanzos: 3 porciones A, 3 porciones B',
-        'Porcionar frutos secos: 7 bolsitas A (23-30g), 7 bolsitas B (35-40g)',
-        'Preparar base de curry de garbanzos (doble cantidad)',
-        'Cocinar arroz integral: 2 tazas A, 3.5 tazas B'
-      ]
-    },
-    miércoles: {
-      titulo: 'Mini Meal Prep de Mitad de Semana',
-      tiempo: '60-75 minutos',
-      tareas: [
-        'Cocinar pavo: 2 pechugas A (150g c/u), 2 pechugas B (220g c/u)',
-        'Preparar wraps de pavo (armar sin mojar)',
-        'Hacer ensalada de atún: A con 1 lata, B con 2 latas',
-        'Asar vegetales para bowl de lentejas',
-        'Preparar curry de garbanzos con cantidades ajustadas',
-        'Cocinar lentejas: 2 tazas A, 3 tazas B'
-      ]
-    }
-  };
-
-  const shoppingList = {
-    proteinas: [
-      'Salmón A: 600g (4x150g) / B: 1kg (5x200g)',
-      'Pollo A: 600g / B: 1.2kg',
-      'Pavo A: 300g / B: 500g',
-      'Pescado blanco A: 200g / B: 300g',
-      'Atún A: 2 latas / B: 4 latas',
-      'Huevos A: 12 unidades / B: 18 unidades'
-    ],
-    granos: [
-      'Quinoa A: 500g / B: 900g',
-      'Avena A: 500g / B: 750g',
-      'Arroz integral A: 500g / B: 900g',
-      'Pan integral sin gluten: 2 paquetes',
-      'Tortillas integrales: 10 unidades'
-    ],
-    legumbres: [
-      'Garbanzos A: 700g secos / B: 1.2kg secos',
-      'Lentejas A: 300g / B: 500g',
-      'Edamame A: 200g / B: 350g'
-    ],
-    vegetales: [
-      'Espinaca fresca: 3 manojos grandes',
-      'Kale: 3 manojos grandes',
-      'Brócoli: 4 cabezas',
-      'Espárragos: 2 manojos',
-      'Calabacín: 5 unidades',
-      'Zanahorias: 1.5kg',
-      'Apio: 2 manojos',
-      'Pepino: 6 unidades',
-      'Tomates cherry: 700g',
-      'Champiñones: 500g',
-      'Aguacate A: 6 unidades / B: 10 unidades',
-      'Batata: 3 unidades (para B)'
-    ],
-    frutas: [
-      'Arándanos frescos: 500g',
-      'Mango: 3 unidades',
-      'Manzana: 6 unidades',
-      'Pera: 5 unidades',
-      'Plátano: 5 unidades (para B)',
-      'Frutos rojos mixtos: 600g',
-      'Limones: 8 unidades'
-    ],
-    frutosSecos: [
-      'Almendras A: 500g / B: 850g',
-      'Nueces A: 300g / B: 500g',
-      'Mix frutos secos A: 400g / B: 650g',
-      'Mantequilla de almendra: 2 frascos',
-      'Mantequilla de nuez: 1 frasco'
-    ],
-    otros: [
-      'Yogurt de coco A: 1L / B: 1.5L',
-      'Leche de almendra: 2L',
-      'Aceite de oliva extra virgen: 750ml',
-      'Cúrcuma en polvo',
-      'Jengibre fresco',
-      'Ajo',
-      'Tahini',
-      'Semillas de chía A: 200g / B: 350g',
-      'Granola sin azúcar A: 300g / B: 500g',
-      'Curry en polvo',
-      'Sal del Himalaya',
-      'Pimienta negra'
+const mealPrepSchedule = {
+  domingo: {
+    titulo: 'Día principal de preparación',
+    tiempo: '2.5 horas',
+    tareas: [
+      'Cocinar arroz integral (4 tazas crudas)',
+      'Hervir porotos y lentejas (1kg total)',
+      'Preparar charquicán vegetal y puré de zapallo (guardar porciones)',
+      'Cocinar pollo y pescado (porcionar y congelar)',
+      'Cortar verduras para ensaladas (zanahoria, repollo, lechuga, pepino)',
+      'Preparar hummus y aderezos caseros',
+      'Porcionar frutos secos y avena para la semana'
     ]
-  };
+  },
+  miércoles: {
+    titulo: 'Refuerzo de mitad de semana',
+    tiempo: '1 hora',
+    tareas: [
+      'Reponer verduras frescas (tomate, lechuga, palta)',
+      'Cocinar cazuela o sopa de verduras',
+      'Hacer tortillas de verduras y budín de quinoa',
+      'Preparar ensalada de atún o pollo'
+    ]
+  }
+};
+
+const shoppingList = {
+  proteinas: [
+    'Pollo: 2kg (pechuga o truto corto desgrasado)',
+    'Pescado blanco (merluza): 1kg',
+    'Salmón: 600g',
+    'Atún en agua: 6 latas',
+    'Huevos: 30 unidades',
+    'Carne magra (posta rosada o asiento): 800g'
+  ],
+  granos: [
+    'Arroz integral: 2kg',
+    'Avena integral: 1.5kg',
+    'Pan integral: 4 paquetes (8 rebanadas c/u)',
+    'Quinoa: 1kg',
+    'Tortillas integrales: 10 unidades'
+  ],
+  legumbres: [
+    'Porotos: 1kg',
+    'Lentejas: 1kg',
+    'Garbanzos: 500g'
+  ],
+  vegetales: [
+    'Zapallo camote: 2kg',
+    'Zanahorias: 1.5kg',
+    'Lechuga: 4 unidades',
+    'Tomate: 2kg',
+    'Pepino: 1kg',
+    'Repollo: 1 unidad',
+    'Betarraga: 1kg',
+    'Zapallo italiano: 1kg',
+    'Cebolla: 1kg',
+    'Ajo: 1 cabeza',
+    'Papas: 1kg',
+    'Pimentón: 500g'
+  ],
+  frutas: [
+    'Manzanas: 10 unidades',
+    'Peras: 8 unidades',
+    'Plátanos: 6 unidades',
+    'Frutillas: 500g',
+    'Frutos rojos congelados: 500g',
+    'Limones: 6 unidades'
+  ],
+  frutosSecos: [
+    'Almendras: 400g',
+    'Nueces: 300g',
+    'Mix frutos secos: 400g',
+    'Mantequilla de maní natural: 1 frasco'
+  ],
+  otros: [
+    'Aceite de oliva extra virgen: 500ml',
+    'Semillas de chía: 200g',
+    'Tahini o garbanzos para hummus: 500g',
+    'Yogurt natural sin azúcar: 2L',
+    'Leche vegetal o descremada: 2L',
+    'Cúrcuma, canela, pimienta negra, sal de mar'
+  ]
+};
+
 
   const toggleCheck = (category, item) => {
     const key = `${category}-${item}`;
